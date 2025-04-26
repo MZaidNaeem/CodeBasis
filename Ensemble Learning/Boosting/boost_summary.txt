@@ -1,0 +1,47 @@
+
+
+important forumlas 
+
+	node_residue of regression is res_sum/n
+	node_residue of classification is res_sum/(  S{pre_prob + 1-pre_prob})
+
+	s_regression is (res_sum)^2/n+ L1
+	s_classification is (res_sum)^2/(  S{pre_prob + 1-pre_prob}*L1) 
+
+	o_regression is (res_sum)/n+ L1
+	o_classification is (res_sum)/(  S{pre_prob + 1-pre_prob}*L1) 
+ 
+
+1) Classification Tree
+	
+	best split for which the entropy or impurity is zero
+				S{ p log p }  S{ p^2 }
+2) Regression Tree
+
+	best split for which the mean square error less
+	take different means by moving from left to right and only taking mean of right value in this way 
+3) Adaboost 
+
+	only thumb of tree is create
+	wrong answer is cretizied by increasing it's probabliy by e ^ amount of say
+	in his way next selected model would have data with number of dataset containing that value is high
+	keep on doing this and final output is S{ models output * amount of say }
+4) Gradient boost
+	
+	first model have output as mean of actual data and residual is the difference between actual and predicted
+	next model predict the dummy node residue by taking mean of the values and after that new value is crate by pre_output + 0.1 * node_residue
+	we continue this steps and final output is  mean + S{ model residue * 0.1}
+
+	first model have output as log of the odds and  residual is the difference between actual and predicted ( keep the 0 and 1 in mind)
+	next model predict the dummy node residue by formula given above and after that node_residue is created  then pre_output + 0.1 * node_residue
+	we continue this steps and final output is  first_output + S{ model residue * 0.1}
+
+5) Xtreme Gradient Boost 
+	
+	the difference is just that the tree is formed by on the basis of similarity score
+	output is same just added the L1 regularization in output   
+
+	tree are proned based on the that if it's similarity is smaller then gamma value
+
+
+	
